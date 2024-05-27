@@ -29,10 +29,15 @@
         </span>
       </div>
     </nav>
-    <div>
-      <%= flash["notice"] %>
-    </div>
+    <div class="container-fluid">
+      <% if flash["notice"] %>
+        <div class="alert alert-primary mt-3">
+          <%= flash["notice"] %>
+        </div>
+      <% end %>
 
-    <%= yield %>
+
+      <%= yield %>
+    </div>
   </body>
 </html>
