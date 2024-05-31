@@ -8,7 +8,9 @@
   <% for entry in @entries %>
     <div class="col">
         <div class="card h-100">
-            <img src="image1.jpg" class="card-img-top" alt="Post Image">
+            <% if entry.uploaded_image.attached? %>
+              <img src="<%= url_for(entry.uploaded_image) %>" class="card-img-top" alt="Post Image">
+            <% end %>
             <div class="card-body">
                 <h5 class="card-title"><%= entry["title"] %></h5>
                 <p class="card-text"><small class="text-muted"><%= entry["occurred_on"] %></small></p>
